@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - Skill Swap</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">SkillSwap</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <button id="logout-btn" class="btn-secondary">Logout</button>
+        </div>
+    </nav>
+
+    <div class="chat-container">
+        <!-- Users List -->
+        <div class="users-list">
+            <div style="padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: bold;">
+                Chats
+            </div>
+            <!-- Dynamic Users -->
+            <p style="padding: 1rem; opacity: 0.6; font-size: 0.9rem;">Select a verified match to chat.</p>
+        </div>
+
+        <!-- Chat Area -->
+        <div class="chat-area">
+            <div class="chat-header">
+                <h3 id="chat-with-name">Select a conversation</h3>
+            </div>
+
+            <div class="messages-box">
+                <!-- Messages go here -->
+            </div>
+
+            <div class="message-input-area">
+                <input type="text" class="chat-input" placeholder="Type a message..." disabled>
+                <button class="send-btn btn-primary" disabled>Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/chat.js"></script>
+    <script type="module" src="js/auth.js"></script>
+</body>
+
+</html>

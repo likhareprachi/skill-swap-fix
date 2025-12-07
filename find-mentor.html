@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Mentors - Skill Swap</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, #0B1D39 0%, #152C50 100%);
+            padding: 8rem 5% 4rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #F5EEDA 0%, #E6D5B8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            font-size: 1.1rem;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-color);
+            outline: none;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 5%;
+        }
+
+        .mentor-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .mentor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .mentor-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .mentor-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .skill-badge {
+            background: var(--light-blue);
+            color: var(--primary-color);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">SkillSwap</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="find-mentor.html" class="active">Find Mentors</a>
+            <a href="dashboard.html" id="dashboard-link">Dashboard</a>
+            <a href="login.html" id="login-link" class="btn-primary">Login</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Explore Community Skills</h1>
+        <p style="color: rgba(245, 238, 218, 0.8); font-size: 1.2rem; margin-bottom: 2rem;">Find fellow students to swap
+            skills with</p>
+
+        <div class="search-container">
+            <input type="text" id="skill-search" class="search-input"
+                placeholder="Search for skills (e.g. Python, Design)...">
+        </div>
+    </header>
+
+    <div id="skills-container" class="skills-grid">
+        <!-- Dynamic Skills Will Load Here -->
+        <p style="color: white; text-align: center; grid-column: 1/-1;">Loading community skills...</p>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast"
+        style="position: fixed; bottom: 20px; right: 20px; background: var(--accent-color); color: var(--primary-color); padding: 1rem 2rem; border-radius: 10px; display: none; z-index: 2000; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+    </div>
+
+    <script type="module" src="js/find-mentor.js"></script>
+</body>
+
+</html>

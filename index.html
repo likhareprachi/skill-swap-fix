@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Swap - Exchange Skills, Grow Together</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description"
+        content="Skill Swap Platform - Exchange skills with students worldwide. Learn new skills by teaching what you know.">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">SkillSwap</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#skills">Skills</a>
+            <a href="dashboard.html">Dashboard</a>
+            <div style="position: relative; display: inline-block;">
+                <span class="notification-badge" style="display: none;">0</span>
+                <a href="dashboard.html">🔔</a>
+            </div>
+            <!-- Logic to toggle Login/Logout based on auth state will be handled by script roughly or user navigates -->
+            <a href="login.html" id="nav-login-btn" class="btn-primary">Login / Sign Up</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content" style="text-align: left;">
+            <h1>Learn New Skills.<br>Share Your Passion.</h1>
+            <p>Join the global community of students exchanging knowledge. Teach what you excel at, and learn what you
+                want to master. Completely free peer-to-peer learning.</p>
+            <div class="hero-btns" style="display: flex; gap: 1rem;">
+                <a href="#skills" class="btn-primary">Explore Skills</a>
+                <a href="login.html" class="btn-secondary">Get Started</a>
+            </div>
+        </div>
+        <!-- Hero Image / Logo -->
+        <div class="hero-image">
+            <img src="images/logo.png" alt="Skill Swap Logo" class="main-logo">
+        </div>
+    </header>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="section-header">
+            <h2>How It Works</h2>
+            <p>Start your learning journey in 3 simple steps</p>
+        </div>
+
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-icon">🔍</div>
+                <h3>1. Find a Skill</h3>
+                <p>Browse through our community of students teaching everything from coding to cooking.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-icon">🤝</div>
+                <h3>2. Connect</h3>
+                <p>Send a message to the tutor. Propose a skill you can teach in return.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-icon">💡</div>
+                <h3>3. Swap & Learn</h3>
+                <p>Schedule a session and start exchanging knowledge. It's that simple!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Skills -->
+    <section id="skills">
+        <h2>Featured Skills</h2>
+        <div style="max-width: 600px; margin: 0 auto 2rem; position: relative;">
+            <input type="text" id="search-bar" placeholder="Search skills (e.g. 'coding', 'design')"
+                style="width: 100%; padding: 1rem; border-radius: 50px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: white; outline: none;">
+        </div>
+        <div class="card-grid skills-grid">
+            <div class="card skill-card-white">
+                <div class="skill-icon-small">📄</div>
+                <h3>Resume Building</h3>
+                <p>Craft professional resumes that stand out to recruiters.</p>
+                <a href="skill-details.html?skill=resume-building" class="btn-skill">Explore</a>
+            </div>
+            <div class="card skill-card-white">
+                <div class="skill-icon-small">🎨</div>
+                <h3>Graphic Design</h3>
+                <p>Create stunning visuals, logos, and brand identities.</p>
+                <a href="skill-details.html?skill=graphic-design" class="btn-skill">Explore</a>
+            </div>
+            <div class="card skill-card-white">
+                <div class="skill-icon-small">💼</div>
+                <h3>LinkedIn Optimization</h3>
+                <p>Boost your profile visibility and professional network.</p>
+                <a href="skill-details.html?skill=linkedin-optimization" class="btn-skill">Explore</a>
+            </div>
+            <div class="card skill-card-white">
+                <div class="skill-icon-small">✨</div>
+                <h3>UI/UX Design</h3>
+                <p>Design intuitive and user-friendly digital experiences.</p>
+                <a href="skill-details.html?skill=ui-ux-design" class="btn-skill">Explore</a>
+            </div>
+            <div class="card skill-card-white">
+                <div class="skill-icon-small">💻</div>
+                <h3>HTML & CSS</h3>
+                <p>Build beautiful, responsive websites from scratch.</p>
+                <a href="skill-details.html?skill=html-css" class="btn-skill">Explore</a>
+            </div>
+            <div class="card skill-card-white">
+                <div class="skill-icon-small">📊</div>
+                <h3>Presentation Making</h3>
+                <p>Create impactful slides that engage your audience.</p>
+                <a href="skill-details.html?skill=presentation-making" class="btn-skill">Explore</a>
+            </div>
+            <div class="card skill-card-white">
+                <div class="skill-icon-small">🎥</div>
+                <h3>Video Editing</h3>
+                <p>Edit professionals videos for YouTube and Social Media.</p>
+                <a href="skill-details.html?skill=video-editing" class="btn-skill">Explore</a>
+            </div>
+            <div class="card skill-card-white">
+                <div class="skill-icon-small">✒️</div>
+                <h3>Logo Designing</h3>
+                <p>Design unique and memorable logos for brands.</p>
+                <a href="skill-details.html?skill=logo-designing" class="btn-skill">Explore</a>
+            </div>
+        </div>
+    </section>
+
+    <footer
+        style="padding: 2rem 5%; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 4rem;">
+        <p>&copy; 2024 Skill Swap. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/auth.js"></script>
+    <script type="module">
+        import { auth } from './firebase/firebase-config.js';
+        import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+        const navBtn = document.getElementById('nav-login-btn');
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                navBtn.textContent = 'Logout';
+                navBtn.href = "#";
+                navBtn.addEventListener('click', () => signOut(auth));
+            } else {
+                navBtn.textContent = 'Login / Sign Up';
+                navBtn.href = "login.html";
+            }
+        });
+    </script>
+</body>
+
+</html>

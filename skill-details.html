@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Details - Skill Swap</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .detail-hero {
+            padding: 8rem 5% 4rem;
+            background: linear-gradient(135deg, #0B1D39 0%, #1a3c6e 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .detail-icon {
+            font-size: 6rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 50%;
+            backdrop-filter: blur(10px);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .detail-content {
+            max-width: 1000px;
+            margin: -3rem auto 0;
+            padding: 0 5% 4rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .topic-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .topic-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.1rem;
+            color: #445566;
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        .topic-item::before {
+            content: '✓';
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            margin-top: 2rem;
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, var(--accent-color), #4dabf7);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-btn {
+            background: white;
+            color: var(--accent-color);
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1.5rem;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">SkillSwap</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#skills">Skills</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="login.html" id="nav-login-btn" class="btn-primary">Login / Sign Up</a>
+        </div>
+    </nav>
+
+    <!-- Detail Hero -->
+    <header class="detail-hero">
+        <div id="skill-icon-display" class="detail-icon">✨</div>
+        <h1 id="skill-title-display">Skill Details</h1>
+    </header>
+
+    <!-- Main Content -->
+    <div class="detail-content">
+        <!-- Overview -->
+        <div class="content-card">
+            <h2 class="section-title">About this Skill</h2>
+            <p id="skill-description-display"
+                style="font-size: 1.1rem; line-height: 1.8; color: #556677; margin-bottom: 2rem;">
+                <!-- Description loaded here -->
+            </p>
+
+            <h2 class="section-title">Why Learn This?</h2>
+            <blockquote id="skill-why-display"
+                style="border-left: 4px solid var(--accent-color); padding-left: 1rem; font-style: italic; color: #445566; font-size: 1.1rem;">
+                <!-- Why learn loaded here -->
+            </blockquote>
+        </div>
+
+        <!-- Topics -->
+        <div class="content-card">
+            <h2 class="section-title">What You Will Learn</h2>
+            <ul id="skill-topics-display" class="topic-list">
+                <!-- Topics loaded here -->
+            </ul>
+        </div>
+
+        <!-- Video Resources -->
+        <div class="content-card">
+            <h2 class="section-title">Featured Documentary / Guide</h2>
+            <p>Watch this curated guide to understand the fundamentals.</p>
+            <div class="video-container">
+                <iframe id="skill-video-frame" src="" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-box">
+            <h2>Ready to Master <span id="skill-name-cta">this skill</span>?</h2>
+            <p>Connect with student mentors who are experts in this field.</p>
+            <a href="index.html#skills" class="cta-btn">Find a Mentor</a>
+        </div>
+    </div>
+
+    <footer style="padding: 2rem 5%; text-align: center; border-top: 1px solid rgba(0,0,0,0.1); background: #f8f9fa;">
+        <p>&copy; 2024 Skill Swap. All rights reserved.</p>
+    </footer>
+
+    <script type="module">
+        import { skillData } from './js/skill-data.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get URL params
+            const urlParams = new URLSearchParams(window.location.search);
+            const skillId = urlParams.get('skill');
+
+            if (!skillId || !skillData[skillId]) {
+                // Redirect to home if invalid
+                window.location.href = 'index.html';
+                return;
+            }
+
+            const data = skillData[skillId];
+
+            // Populate Page
+            document.title = `${data.title} - Skill Swap`;
+            document.getElementById('skill-icon-display').textContent = data.icon;
+            document.getElementById('skill-title-display').textContent = data.title;
+            document.getElementById('skill-description-display').textContent = data.description;
+            document.getElementById('skill-why-display').textContent = data.whyLearn;
+            document.getElementById('skill-name-cta').textContent = data.title;
+
+            const topicsList = document.getElementById('skill-topics-display');
+            data.topics.forEach(topic => {
+                const li = document.createElement('li');
+                li.className = 'topic-item';
+                li.textContent = topic;
+                topicsList.appendChild(li);
+            });
+
+            // Set Video
+            const videoFrame = document.getElementById('skill-video-frame');
+            if (data.videoUrl) {
+                videoFrame.src = data.videoUrl;
+            } else {
+                videoFrame.parentElement.style.display = 'none'; // Hide if no video
+            }
+        });
+    </script>
+</body>
+
+</html>

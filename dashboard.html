@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Skill Swap</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">SkillSwap</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="chat.html">Messages</a>
+            <button id="logout-btn" class="btn-secondary">Logout</button>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="profile-section">
+                <div class="profile-pic">
+                    <img src="" alt="User" id="profile-img" onerror="this.style.display='none'">
+                    <span id="profile-initial">U</span>
+                </div>
+                <h3 id="user-name">Loading...</h3>
+                <p id="user-email" style="opacity: 0.7; font-size: 0.9rem;">...</p>
+            </div>
+            <button class="tab-btn active" onclick="showTab('profile')">My Profile</button>
+            <button class="tab-btn" onclick="showTab('explore')">Explore</button>
+            <button class="tab-btn" onclick="showTab('skills')">My Skills</button>
+            <button class="tab-btn" onclick="showTab('requests')">Requests</button>
+            <button class="tab-btn" onclick="showTab('notifications')">Notifications</button>
+        </aside>
+
+        <main class="content">
+            <!-- Explore Tab -->
+            <div id="explore" class="tab-content">
+                <h2>Explore Community Skills</h2>
+                <div class="card">
+                    <p style="margin-bottom: 1.5rem; opacity: 0.8;">Discover skills offered by other students and
+                        request mentorship.</p>
+                    <div id="explore-skills-list"
+                        style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
+                        <!-- Dynamic Skills from other users -->
+                        <p>Loading skills...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Tab -->
+            <div id="profile" class="tab-content active">
+
+                <!-- View Mode -->
+                <div id="profile-view">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                        <h2>My Profile</h2>
+                        <button id="open-edit-btn" class="btn-secondary">Edit Profile</button>
+                    </div>
+                    <div class="card">
+                        <div
+                            style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                            <!-- Large Profile Pic in View -->
+                            <div
+                                style="width: 100px; height: 100px; border-radius: 50%; background: var(--accent-color); display: flex; align-items: center; justify-content: center; overflow: hidden; font-size: 2.5rem; color: var(--primary-color);">
+                                <img src="" alt="" id="view-profile-img"
+                                    style="width: 100%; height: 100%; object-fit: cover; display: none;">
+                                <span id="view-profile-initial">U</span>
+                            </div>
+                            <div>
+                                <h3 id="view-name"
+                                    style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--white);">Loading...
+                                </h3>
+                                <p id="view-email" style="opacity: 0.7;">...</p>
+                            </div>
+                        </div>
+
+                        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin-bottom: 2rem;">
+
+                        <div
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                            <div>
+                                <strong
+                                    style="color: var(--accent-color); display: block; margin-bottom: 0.5rem;">Bio</strong>
+                                <p id="view-bio">--</p>
+                            </div>
+                            <div>
+                                <strong
+                                    style="color: var(--accent-color); display: block; margin-bottom: 0.5rem;">College</strong>
+                                <p id="view-college">--</p>
+                            </div>
+                            <div>
+                                <strong
+                                    style="color: var(--accent-color); display: block; margin-bottom: 0.5rem;">Semester</strong>
+                                <p id="view-semester">--</p>
+                            </div>
+                            <div>
+                                <strong
+                                    style="color: var(--accent-color); display: block; margin-bottom: 0.5rem;">Branch</strong>
+                                <p id="view-branch">--</p>
+                            </div>
+                        </div>
+
+                        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 2rem 0;">
+
+                        <div>
+                            <h3 style="color: var(--white); font-size: 1.4rem; margin-bottom: 1rem;">Skills I Can Teach
+                            </h3>
+                            <div id="profile-skills-display"
+                                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                                <p style="opacity: 0.7;">No skills listed yet.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edit Mode (Hidden) -->
+                <div id="profile-edit" style="display: none;">
+                    <h2>Edit Profile</h2>
+                    <div class="card">
+                        <div class="form-group">
+                            <label>Display Name</label>
+                            <input type="text" id="edit-name" placeholder="Update your name">
+                        </div>
+                        <div class="form-group">
+                            <label>Bio</label>
+                            <input type="text" id="edit-bio" placeholder="Tell us about yourself">
+                        </div>
+                        <div class="form-group">
+                            <label>College Name</label>
+                            <input type="text" id="edit-college" placeholder="Your University/College">
+                        </div>
+                        <div class="form-group">
+                            <label>Semester</label>
+                            <input type="text" id="edit-semester" placeholder="Current Semester (e.g. 4th)">
+                        </div>
+                        <div class="form-group">
+                            <label>Branch</label>
+                            <input type="text" id="edit-branch" placeholder="Your Major/Branch (e.g. CS)">
+                        </div>
+                        <!-- Photo upload simulated -->
+                        <div class="form-group">
+                            <label>Profile Picture URL</label>
+                            <input type="text" id="edit-pic" placeholder="https://example.com/me.jpg">
+                        </div>
+                        <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                            <button id="save-profile-btn" class="btn-primary">Save Changes</button>
+                            <button id="cancel-edit-btn" class="btn-secondary">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Tab -->
+            <div id="skills" class="tab-content">
+                <h2>Manage Skills</h2>
+
+                <!-- Add New Skill -->
+                <div class="card" style="margin-bottom: 2rem;">
+                    <h3>Add New Skill</h3>
+                    <form id="add-skill-form">
+                        <div class="form-group">
+                            <label>Skill Name</label>
+                            <input type="text" id="skill-name" required placeholder="e.g. Graphic Design">
+                        </div>
+                        <div class="form-group">
+                            <label>Short Description</label>
+                            <input type="text" id="skill-desc" required
+                                placeholder="I can teach you how to make logos...">
+                        </div>
+                        <div class="form-group">
+                            <label>Time Duration</label>
+                            <input type="text" id="skill-duration" required placeholder="e.g. 2 Weeks, 1 Month">
+                        </div>
+                        <button type="submit" class="btn-primary">Add Skill</button>
+                    </form>
+                </div>
+
+                <h3>Your Listed Skills</h3>
+                <div id="my-skills-list"
+                    style="margin-top: 1rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem;">
+                    <!-- Dynamic List -->
+                </div>
+            </div>
+
+            <!-- Requests Tab -->
+            <div id="requests" class="tab-content">
+                <div class="card" style="margin-bottom: 2rem;">
+                    <h3>Incoming Requests</h3>
+                    <p style="opacity: 0.7; margin-bottom: 1rem;">People who want to learn from you</p>
+                    <div id="incoming-requests-list" style="display: flex; flex-direction: column; gap: 1rem;">
+                        <!-- Dynamic -->
+                        <p>No new requests.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Sent Requests</h3>
+                    <p style="opacity: 0.7; margin-bottom: 1rem;">Skills you requested</p>
+                    <div id="sent-requests-list" style="display: flex; flex-direction: column; gap: 1rem;">
+                        <!-- Dynamic -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notifications Tab -->
+            <div id="notifications" class="tab-content">
+                <h2>Notifications</h2>
+                <div class="card">
+                    <ul id="notifications-list" style="list-style: none;">
+                        <!-- Dynamic Notifications -->
+                        <p>No notifications.</p>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function showTab(id) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+    <script type="module" src="js/dashboard.js"></script>
+    <script type="module" src="js/auth.js"></script>
+</body>
+
+</html>

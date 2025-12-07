@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Skill Swap</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .switch-form {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .switch-form span {
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            color: var(--secondary-color);
+            opacity: 0.6;
+            transition: 0.3s;
+        }
+
+        .switch-form span.active {
+            opacity: 1;
+            border-bottom: 2px solid var(--accent-color);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="switch-form">
+                <span id="show-login" class="active">Login</span>
+                <span id="show-signup">Sign Up</span>
+            </div>
+
+            <!-- Login Form -->
+            <form id="login-form">
+                <h2>Welcome Back</h2>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" required>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">Login</button>
+            </form>
+
+            <!-- Signup Form -->
+            <form id="signup-form" style="display: none;">
+                <h2>Create Account</h2>
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" required>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">Sign Up</button>
+            </form>
+
+            <div style="text-align: center; margin-top: 1rem;">
+                <p>OR</p>
+                <button id="google-login-btn" class="btn-secondary"
+                    style="width: 100%; margin-top: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google"
+                        style="width: 20px; height: 20px;">
+                    Sign in with Google
+                </button>
+            </div>
+
+            <div class="form-footer">
+                <a href="index.html">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('login-form');
+        const signupForm = document.getElementById('signup-form');
+        const showLogin = document.getElementById('show-login');
+        const showSignup = document.getElementById('show-signup');
+
+        showLogin.addEventListener('click', () => {
+            loginForm.style.display = 'block';
+            signupForm.style.display = 'none';
+            showLogin.classList.add('active');
+            showSignup.classList.remove('active');
+        });
+
+        showSignup.addEventListener('click', () => {
+            loginForm.style.display = 'none';
+            signupForm.style.display = 'block';
+            showSignup.classList.add('active');
+            showLogin.classList.remove('active');
+        });
+    </script>
+    <script type="module" src="js/auth.js"></script>
+</body>
+
+</html>
